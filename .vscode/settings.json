@@ -1,0 +1,5 @@
+{
+    "code-runner.runInTerminal": true,
+    "debug.javascript.terminalOptions": {},
+    "python.terminal.activateEnvInCurrentTerminal": true
+}
