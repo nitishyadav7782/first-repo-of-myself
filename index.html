@@ -3,29 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yadav Store Hub</title>
+    <title>Yadav Store Hub - Modern E-Commerce</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="animated-bg bg-2"></div>
+    <div class="animated-bg bg-3"></div>
+
     <header>
-        <h1><i class="fas fa-store"></i> Yadav Store Hub</h1>
-        <div class="header-controls">
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search your product, brand and more">
-                <button id="search-btn"><i class="fas fa-search"></i></button>
+        <div class="header-inner">
+            <div class="logo-section">
+                <h1><i class="fas fa-store"></i> Yadav Store Hub</h1>
             </div>
-            <div class="header-buttons">
-                <button id="account-btn" title="Account"><i class="fas fa-user"></i> Account</button>
-                <button id="more-btn" title="More"><i class="fas fa-ellipsis-v"></i></button>
-                <button id="cart-header-btn" title="Cart"><i class="fas fa-shopping-cart"></i> <span id="cart-count-header">0</span></button>
+            <div class="header-controls">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search products...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-buttons">
+                    <button id="account-btn" title="Account"><i class="fas fa-user"></i><span class="btn-text"> Account</span></button>
+                    <button id="theme-toggle" title="Theme"><i class="fas fa-moon"></i></button>
+                    <button id="cart-header-btn" title="Cart"><i class="fas fa-shopping-cart"></i><span id="cart-count-header" class="badge">0</span></button>
+                </div>
             </div>
         </div>
         <nav>
+            <a href="#hero"><i class="fas fa-home"></i> Home</a>
             <a href="#products"><i class="fas fa-boxes"></i> Products</a>
-            <a href="#cart"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a>
+            <a href="#cart"><i class="fas fa-shopping-cart"></i> Cart</a>
         </nav>
     </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Welcome to <span class="gradient-text">Yadav Store</span></h2>
+            <p class="hero-subtitle">Discover premium tech products with modern style</p>
+            <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                Explore Now <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        <div class="hero-cards">
+            <div class="hero-card card-1">
+                <i class="fas fa-laptop"></i>
+                <p>Premium Tech</p>
+            </div>
+            <div class="hero-card card-2">
+                <i class="fas fa-flash"></i>
+                <p>Fast Delivery</p>
+            </div>
+            <div class="hero-card card-3">
+                <i class="fas fa-shield-alt"></i>
+                <p>Secure Checkout</p>
+            </div>
+        </div>
+    </section>
 
     <main>
         <section id="products">
@@ -39,23 +74,77 @@
             <p>Total: ₹<span id="cart-total">0</span></p>
             <button id="checkout-btn"><i class="fas fa-credit-card"></i> Checkout</button>
         </section>
-    </main>
 
-    <footer>
-        <div class="footer-links">
-            <a href="#about">About</a>
-            <a href="#group-company">Group Company</a>
-            <a href="#help">Help</a>
-            <a href="#consumer-policy">Consumer Policy</a>
+        <!-- Login Modal -->
+        <div id="login-modal" class="login-modal">
+            <div class="login-container">
+                <button class="close-btn" id="close-login">&times;</button>
+                <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+                <p>Login to your account</p>
+                
+                <button id="login-phone-btn" class="login-btn phone-login">
+                    <i class="fas fa-phone"></i> Login with Phone Number
+                </button>
+                
+                <button id="login-gmail-btn" class="login-btn gmail-login">
+                    <i class="fab fa-google"></i> Login with Gmail
+                </button>
+
+                <!-- Phone Login Form -->
+                <div id="phone-login-form" class="login-form" style="display: none;">
+                    <h3>Enter Phone Number</h3>
+                    <input type="tel" id="phone-login-input" placeholder="Enter 10-digit phone number" maxlength="10">
+                    <button id="send-otp-btn" class="submit-btn">Send OTP</button>
+                    <div id="otp-section" style="display: none;">
+                        <h3>Enter OTP</h3>
+                        <input type="text" id="otp-input" placeholder="Enter 6-digit OTP" maxlength="6">
+                        <p class="otp-hint"><i class="fas fa-info-circle"></i> Use any 6 digits (e.g., 123456)</p>
+                        <button id="verify-otp-btn" class="submit-btn">Verify OTP</button>
+                    </div>
+                    <div class="terms-section">
+                        <input type="checkbox" id="terms-check-phone">
+                        <label for="terms-check-phone">By continuing, you agree to Yadav Store Hub's <a href="#terms" target="_blank">Terms of Use</a> and <a href="#privacy" target="_blank">Privacy Policy</a>.</label>
+                    </div>
+                    <div id="otp-success-msg" class="success-message" style="display: none;">
+                        <i class="fas fa-check-circle"></i> OTP sent to your phone
+                    </div>
+                </div>
+
+                <!-- Gmail Login Form -->
+                <div id="gmail-login-form" class="login-form" style="display: none;">
+                    <h3>Enter Email/Phone</h3>
+                    <input type="text" id="gmail-login-input" placeholder="Enter your Gmail address or phone number">
+                    <button id="gmail-login-submit-btn" class="submit-btn">Continue</button>
+                    <div class="terms-section">
+                        <input type="checkbox" id="terms-check-gmail">
+                        <label for="terms-check-gmail">By continuing, you agree to Yadav Store Hub's <a href="#terms" target="_blank">Terms of Use</a> and <a href="#privacy" target="_blank">Privacy Policy</a>.</label>
+                    </div>
+                    <div id="gmail-success-msg" class="success-message" style="display: none;">
+                        <i class="fas fa-check-circle"></i> Verification code sent!
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-about">
-            <h3>About</h3>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#about-us">About Us</a>
-            <a href="#store-hub">Store Hub</a>
-            <a href="#corporate-info">Corporate Information</a>
-        </div>
-    </footer>
+
+        <!-- Social Footer -->
+        <footer class="social-footer">
+            <div class="footer-text">Follow us</div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/er_nitish_yadav05?igsh=OGQ4Y2I1dHZtY2Rp" target="_blank" rel="noopener noreferrer" class="social-link instagram" title="Instagram - @er_nitish_yadav05" aria-label="Instagram - @er_nitish_yadav05">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100070790165229" target="_blank" rel="noopener noreferrer" class="social-link facebook" title="Facebook Profile" aria-label="Facebook Profile">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/nitish-kumar-yadav-7b6a30239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn Profile" aria-label="LinkedIn Profile">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/techdesigner" target="_blank" rel="noopener noreferrer" class="social-link github" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </footer>
+    </main>
 
     <script src="nitishjs1.js"></script>
 </body>

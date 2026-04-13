@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile - Modern Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="instagram-profile.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fab fa-instagram"></i> Instagram
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn" title="Messages"><i class="fas fa-paper-plane"></i></button>
+                <button class="icon-btn" title="Notifications"><i class="fas fa-bell"></i></button>
+                <div class="avatar-small"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <main class="container">
+        <!-- Profile Header -->
+        <section class="profile-header">
+            <div class="profile-cover"></div>
+            
+            <div class="profile-info">
+                <div class="avatar-container">
+                    <div class="avatar"></div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="profile-top">
+                        <div>
+                            <h1>tech.designer</h1>
+                            <p class="handle">@nicolethompson</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-follow">Follow</button>
+                            <button class="btn-message">Message</button>
+                            <button class="btn-more"><i class="fas fa-ellipsis-h"></i></button>
+                        </div>
+                    </div>
+                    
+                    <p class="bio">✨ Product Designer | Photography Enthusiast<br>📍 San Francisco | 🎨 Creating beautiful digital experiences</p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number">1,242</span>
+                            <span class="stat-label">Posts</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">524K</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1,890</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs-nav">
+            <button class="tab-btn active" data-tab="posts">
+                <i class="fas fa-th"></i> Posts
+            </button>
+            <button class="tab-btn" data-tab="reels">
+                <i class="fas fa-film"></i> Reels
+            </button>
+            <button class="tab-btn" data-tab="tagged">
+                <i class="fas fa-tag"></i> Tagged
+            </button>
+            <button class="tab-btn" data-tab="saved">
+                <i class="fas fa-bookmark"></i> Saved
+            </button>
+        </nav>
+
+        <!-- Posts Grid -->
+        <section class="posts-grid">
+            <!-- Posts will be generated here -->
+        </section>
+
+        <!-- About + Contact Section -->
+        <section class="about-contact">
+            <div class="about-card">
+                <div class="section-label">About</div>
+                <h2>Design, storytelling, and brand experiences.</h2>
+                <p>Nicole creates polished digital launches for startups, lifestyle brands, and creative studios. She blends clean UI with warm storytelling and practical UX to help products feel premium and approachable.</p>
+                <ul class="about-list">
+                    <li><strong>Focus:</strong> Visual design, motion, brand systems</li>
+                    <li><strong>Works with:</strong> SaaS, wellness, fashion, creators</li>
+                    <li><strong>Contact:</strong> hello@techdesigner.io</li>
+                </ul>
+            </div>
+            <div class="contact-card">
+                <div class="section-label">Contact</div>
+                <h2>Let’s build something beautiful.</h2>
+                <p>Send a quick message and I’ll respond within one business day.</p>
+                <form class="contact-form" id="contact-form">
+                    <input type="text" id="contact-name" placeholder="Your name" required>
+                    <input type="email" id="contact-email" placeholder="Your email" required>
+                    <textarea id="contact-message" rows="4" placeholder="Tell me about your project"></textarea>
+                    <button type="submit" class="btn-contact">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div><i class="fas fa-envelope"></i> hello@techdesigner.io</div>
+                    <div><i class="fas fa-globe"></i> techdesigner.io</div>
+                    <div><i class="fas fa-map-marker-alt"></i> San Francisco, CA</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for post details -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="modal-body">
+                    <div id="modal-image"></div>
+                    <div class="post-details">
+                        <h3>Post Title</h3>
+                        <p>Post description goes here</p>
+                        <div class="post-actions" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                            <button class="like-btn" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease;">
+                                <span>🤍</span>
+                            </button>
+                            <button style="background: none; border: none; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease;">
+                                <span>💬</span>
+                            </button>
+                            <button style="background: none; border: none; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease;">
+                                <span>📤</span>
+                            </button>
+                        </div>
+                        <div class="post-meta" style="margin-top: 1.5rem;">
+                            <!-- Stats will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Footer -->
+        <footer class="social-footer">
+            <div class="footer-text">Follow me on</div>
+            <div class="social-links">
+                <a href="https://instagram.com/tech.designer" target="_blank" rel="noopener noreferrer" class="social-link instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/tech.designer" target="_blank" rel="noopener noreferrer" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://linkedin.com/in/tech-designer" target="_blank" rel="noopener noreferrer" class="social-link linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/techdesigner" target="_blank" rel="noopener noreferrer" class="social-link github">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="instagram-profile.js"></script>
+</body>
+</html>
